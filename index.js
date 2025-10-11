@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import path from "path";
+import { title } from "process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,15 +33,30 @@ const initialCanvas = {
         {
           type: "text",
           id: "feedback",
-          text: "Leave no feedback:",
-          align: "center",
+          text: "Check out these limited-time offers just for you!",
           style: "header",
         },
         {
-          type: "textarea",
-          id: "description",
-          label: "Description",
-          placeholder: "",
+          type: "list",
+          id: "offers_list",
+          items: [
+            {
+              type: "item",
+              id: "offer_1",
+              title: "10% off your next purchase",
+              image: "https://placehold.co/48x48/007AFF/ffffff?text=20%25",
+              image_width: 48,
+              image_height: 48,
+            },
+            {
+              type: "item",
+              id: "offer_2",
+              title: "20% off your next purchase",
+              image: "https://placehold.co/48x48/34C759/ffffff?text=EBOOK",
+              image_width: 48,
+              image_height: 48,
+            },
+          ],
         },
         {
           type: "single-select",
@@ -118,6 +134,7 @@ app.get("/", (request, response) => {
   started/build-an-app-for-your-messenger/request-flows/#initialize-flow
 */
 app.post("/initialize", (request, response) => {
+  console.log(request.body);
   response.send(initialCanvas);
 });
 
