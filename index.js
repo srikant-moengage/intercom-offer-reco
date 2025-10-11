@@ -32,7 +32,7 @@ const initialCanvas = {
         {
           type: "text",
           id: "feedback",
-          text: "Leave us some feedback:",
+          text: "Leave no feedback:",
           align: "center",
           style: "header",
         },
@@ -104,7 +104,6 @@ const finalCanvas = {
 };
 
 app.get("/", (request, response) => {
-  console.log("GET request received");
   response.sendFile(path.join(__dirname, "index.html"));
 });
 
@@ -119,7 +118,6 @@ app.get("/", (request, response) => {
   started/build-an-app-for-your-messenger/request-flows/#initialize-flow
 */
 app.post("/initialize", (request, response) => {
-  console.log(request.body);
   response.send(initialCanvas);
 });
 
