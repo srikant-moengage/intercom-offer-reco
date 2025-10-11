@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(express.static(path.join(__dirname)));
 
-const listener = app.listen(process.env.PORT, () => {
+const listener = app.listen(5000, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
@@ -32,7 +32,7 @@ const initialCanvas = {
         {
           type: "text",
           id: "feedback",
-          text: "Leave feedback:",
+          text: "Leave us some feedback:",
           align: "center",
           style: "header",
         },
@@ -103,7 +103,8 @@ const finalCanvas = {
   },
 };
 
-app.get("/", (response) => {
+app.get("/", (request, response) => {
+  console.log("GET request received");
   response.sendFile(path.join(__dirname, "index.html"));
 });
 
@@ -118,6 +119,7 @@ app.get("/", (response) => {
   started/build-an-app-for-your-messenger/request-flows/#initialize-flow
 */
 app.post("/initialize", (request, response) => {
+  console.log(request.body);
   response.send(initialCanvas);
 });
 
