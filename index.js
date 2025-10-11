@@ -32,7 +32,7 @@ const initialCanvas = {
         {
           type: "text",
           id: "feedback",
-          text: "Leave us some feedback:",
+          text: "Leave some feedback:",
           align: "center",
           style: "header",
         },
