@@ -17,8 +17,8 @@ deploymentTarget = "cloudrun"
 ignorePorts = false
 
 [[ports]]
-localPort = 5000
-externalPort = 80
+localPort = 35299
+externalPort = 3003
 
 [[ports]]
 localPort = 36141
@@ -30,6 +30,10 @@ externalPort = 3000
 
 [[ports]]
 localPort = 41055
+externalPort = 80
+
+[[ports]]
+localPort = 5000
 externalPort = 80
 
 [agent]
